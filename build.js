@@ -28,12 +28,7 @@ const { site, categories, tools } = data;
 // ──────────────────────────────────────────────
 
 function escapeHtml(str) {
-  return String(str)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
+  return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 }
 
 function escapeAttr(str) {
@@ -178,6 +173,9 @@ categories.forEach((c) => {
 const liveCount = tools.filter((t) => t.status === "live").length;
 const totalCount = tools.length;
 
+// Collect all unique tags across all tools
+const allTags = [...new Set(tools.flatMap((t) => t.tags || []))].sort();
+
 // ──────────────────────────────────────────────
 // HTML Generators for each design
 // ──────────────────────────────────────────────
@@ -201,7 +199,7 @@ function buildDesign1() {
   const cards = toolsData
     .map(
       (t) => `
-        <div class="tool-card" data-id="${escapeAttr(t.id)}" data-category="${escapeAttr(t.category)}" data-search="${escapeAttr((t.name + " " + t.shortDescription + " " + t.tags.join(" ")).toLowerCase())}">
+        <div class="tool-card" data-id="${escapeAttr(t.id)}" data-category="${escapeAttr(t.category)}" data-tags="${escapeAttr(t.tags.join(","))}" data-search="${escapeAttr((t.name + " " + t.shortDescription + " " + t.tags.join(" ")).toLowerCase())}">
           ${t.hasThumbnail ? `<img class="tool-card-thumb" src="${escapeAttr(t.thumbnail)}" alt="${escapeAttr(t.name)}" loading="lazy" onerror="this.outerHTML='<div class=\\'tool-card-thumb-placeholder\\'>${t.categoryIcon}</div>'" />` : `<div class="tool-card-thumb-placeholder">${t.categoryIcon}</div>`}
           <div class="tool-card-body">
             <h3>${escapeHtml(t.name)}</h3>
@@ -216,9 +214,9 @@ function buildDesign1() {
     )
     .join("");
 
-  const filterBtns = categories
-    .map((c) => `<button class="filter-btn" data-category="${escapeAttr(c.id)}">${c.icon} ${escapeHtml(c.name)}</button>`)
-    .join("\n            ");
+  const filterBtns = categories.map((c) => `<button class="filter-btn" data-category="${escapeAttr(c.id)}">${c.icon} ${escapeHtml(c.name)}</button>`).join("\n            ");
+
+  const tagBtns = allTags.map((t) => `<button class="tag-filter-btn" data-tag="${escapeAttr(t)}">${escapeHtml(t)}</button>`).join("\n            ");
 
   return `
     <section id="d1" class="design-section active">
@@ -233,6 +231,10 @@ function buildDesign1() {
       <div class="d1-filters filter-bar">
         <button class="filter-btn active" data-category="all">All</button>
         ${filterBtns}
+      </div>
+      <div class="d1-tags tag-bar">
+        <span class="tag-bar-label">\uD83C\uDFF7\uFE0F Tags:</span>
+        ${tagBtns}
       </div>
       <div class="results-count"></div>
       <div class="d1-grid tool-grid">${cards}
@@ -683,7 +685,12 @@ const html = `<!DOCTYPE html>
       .d1-header p { color: var(--text-muted); font-size: 1.05rem; max-width: 500px; margin: 0 auto 1.5rem; }
       .d1-search { max-width: 480px; margin: 0 auto; position: relative; }
       .d1-search svg { position: absolute; left: 0.9rem; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--text-muted); pointer-events: none; }
-      .d1-filters { display: flex; justify-content: center; gap: 0.4rem; flex-wrap: wrap; padding: 0 1.5rem 1.5rem; }
+      .d1-filters { display: flex; justify-content: center; gap: 0.4rem; flex-wrap: wrap; padding: 0 1.5rem 0.75rem; }
+      .d1-tags { display: flex; justify-content: center; align-items: center; gap: 0.35rem; flex-wrap: wrap; padding: 0 1.5rem 1.5rem; }
+      .tag-bar-label { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; margin-right: 0.25rem; white-space: nowrap; }
+      .tag-filter-btn { font-family: var(--font); font-size: 0.72rem; padding: 0.25rem 0.6rem; border: 1px solid var(--border); border-radius: 4px; background: var(--bg-card); color: var(--text-muted); cursor: pointer; transition: all var(--transition); white-space: nowrap; }
+      .tag-filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+      .tag-filter-btn.active { background: var(--tag-bg); color: var(--tag-text); border-color: var(--tag-bg); }
       .d1-grid { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem 3rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; }
       .d1-grid .tool-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
       .d1-grid .tool-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: var(--accent); }
@@ -901,30 +908,49 @@ const html = `<!DOCTYPE html>
         var input = d1.querySelector(".search-input");
         var cards = Array.from(d1.querySelectorAll(".tool-card"));
         var filterBtns = Array.from(d1.querySelectorAll(".filter-btn"));
+        var tagBtns = Array.from(d1.querySelectorAll(".tag-filter-btn"));
         var noResults = d1.querySelector(".no-results");
         var countEl = d1.querySelector(".results-count");
         var activeCat = "all";
+        var activeTag = "";
 
         function run() {
           var q = input.value.toLowerCase().trim();
           var vis = 0;
           cards.forEach(function(c) {
             var okCat = activeCat === "all" || c.dataset.category === activeCat;
+            var okTag = !activeTag || (c.dataset.tags && c.dataset.tags.split(",").indexOf(activeTag) !== -1);
             var okSearch = !q || c.dataset.search.indexOf(q) !== -1;
-            var show = okCat && okSearch;
+            var show = okCat && okTag && okSearch;
             c.style.display = show ? "" : "none";
             if (show) vis++;
           });
           noResults.style.display = vis === 0 ? "block" : "none";
-          countEl.textContent = (q || activeCat !== "all") ? vis + " tool" + (vis !== 1 ? "s" : "") + " found" : "";
+          var hasFilter = q || activeCat !== "all" || activeTag;
+          countEl.textContent = hasFilter ? vis + " tool" + (vis !== 1 ? "s" : "") + " found" : "";
         }
 
         input.addEventListener("input", run);
+
         filterBtns.forEach(function(b) {
           b.addEventListener("click", function() {
             filterBtns.forEach(function(x) { x.classList.remove("active"); });
             b.classList.add("active");
             activeCat = b.dataset.category;
+            run();
+          });
+        });
+
+        tagBtns.forEach(function(b) {
+          b.addEventListener("click", function() {
+            if (b.classList.contains("active")) {
+              b.classList.remove("active");
+              activeTag = "";
+            } else {
+              tagBtns.forEach(function(x) { x.classList.remove("active"); });
+              b.classList.add("active");
+              activeTag = b.dataset.tag;
+            }
             run();
           });
         });

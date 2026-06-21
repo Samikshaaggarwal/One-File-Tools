@@ -213,7 +213,12 @@
       .d1-header p { color: var(--text-muted); font-size: 1.05rem; max-width: 500px; margin: 0 auto 1.5rem; }
       .d1-search { max-width: 480px; margin: 0 auto; position: relative; }
       .d1-search svg { position: absolute; left: 0.9rem; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--text-muted); pointer-events: none; }
-      .d1-filters { display: flex; justify-content: center; gap: 0.4rem; flex-wrap: wrap; padding: 0 1.5rem 1.5rem; }
+      .d1-filters { display: flex; justify-content: center; gap: 0.4rem; flex-wrap: wrap; padding: 0 1.5rem 0.75rem; }
+      .d1-tags { display: flex; justify-content: center; align-items: center; gap: 0.35rem; flex-wrap: wrap; padding: 0 1.5rem 1.5rem; }
+      .tag-bar-label { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; margin-right: 0.25rem; white-space: nowrap; }
+      .tag-filter-btn { font-family: var(--font); font-size: 0.72rem; padding: 0.25rem 0.6rem; border: 1px solid var(--border); border-radius: 4px; background: var(--bg-card); color: var(--text-muted); cursor: pointer; transition: all var(--transition); white-space: nowrap; }
+      .tag-filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+      .tag-filter-btn.active { background: var(--tag-bg); color: var(--tag-text); border-color: var(--tag-bg); }
       .d1-grid { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem 3rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; }
       .d1-grid .tool-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
       .d1-grid .tool-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: var(--accent); }
@@ -393,389 +398,30 @@
             <button class="filter-btn" data-category="browser-network">🌐 Browser &amp; Network</button>
             <button class="filter-btn" data-category="accessibility">♿ Accessibility</button>
       </div>
+      <div class="d1-tags tag-bar">
+        <span class="tag-bar-label">🏷️ Tags:</span>
+        <button class="tag-filter-btn" data-tag="analyzer">analyzer</button>
+            <button class="tag-filter-btn" data-tag="facebook">facebook</button>
+            <button class="tag-filter-btn" data-tag="meta-tags">meta-tags</button>
+            <button class="tag-filter-btn" data-tag="og-tags">og-tags</button>
+            <button class="tag-filter-btn" data-tag="open-graph">open-graph</button>
+            <button class="tag-filter-btn" data-tag="preview">preview</button>
+            <button class="tag-filter-btn" data-tag="seo">seo</button>
+            <button class="tag-filter-btn" data-tag="social-media">social-media</button>
+            <button class="tag-filter-btn" data-tag="twitter-card">twitter-card</button>
+            <button class="tag-filter-btn" data-tag="validator">validator</button>
+      </div>
       <div class="results-count"></div>
       <div class="d1-grid tool-grid">
-        <div class="tool-card" data-id="og-generator" data-category="web-seo" data-search="open graph generator generate open graph meta tags and preview how your links appear on social media. open-graph meta-tags seo social-media preview">
-          <div class="tool-card-thumb-placeholder">🌐</div>
+        <div class="tool-card" data-id="open-graph-inspector" data-category="web-seo" data-tags="open-graph,meta-tags,seo,social-media,preview,analyzer,twitter-card,facebook,og-tags,validator" data-search="open graph inspector analyze meta tags, social previews, and seo metadata for any url with actionable scores. open-graph meta-tags seo social-media preview analyzer twitter-card facebook og-tags validator">
+          <img class="tool-card-thumb" src="tools/open-graph-inspector.png" alt="Open Graph Inspector" loading="lazy" onerror="this.outerHTML='<div class=\'tool-card-thumb-placeholder\'>🌐</div>'" />
           <div class="tool-card-body">
-            <h3>Open Graph Generator</h3>
-            <p>Generate Open Graph meta tags and preview how your links appear on social media.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Web &amp; SEO</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="og-checker" data-category="web-seo" data-search="open graph checker validate and preview existing open graph tags from any url. open-graph validator seo meta-tags">
-          <div class="tool-card-thumb-placeholder">🌐</div>
-          <div class="tool-card-body">
-            <h3>Open Graph Checker</h3>
-            <p>Validate and preview existing Open Graph tags from any URL.</p>
+            <h3>Open Graph Inspector</h3>
+            <p>Analyze meta tags, social previews, and SEO metadata for any URL with actionable scores.</p>
             <div class="tool-card-tags">
               <span class="tag tag-category">Web &amp; SEO</span>
               <span class="tag tag-medium">Medium</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="meta-tag-generator" data-category="web-seo" data-search="meta tag generator create standard html meta tags for seo, social sharing, and browser behavior. meta-tags seo html generator">
-          <div class="tool-card-thumb-placeholder">🌐</div>
-          <div class="tool-card-body">
-            <h3>Meta Tag Generator</h3>
-            <p>Create standard HTML meta tags for SEO, social sharing, and browser behavior.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Web &amp; SEO</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="twitter-card-preview" data-category="web-seo" data-search="twitter / x card preview preview how your links will appear when shared on twitter / x. twitter card preview social-media">
-          <div class="tool-card-thumb-placeholder">🌐</div>
-          <div class="tool-card-body">
-            <h3>Twitter / X Card Preview</h3>
-            <p>Preview how your links will appear when shared on Twitter / X.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Web &amp; SEO</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="robots-txt-generator" data-category="web-seo" data-search="robots.txt generator build a robots.txt file visually with user-agent rules and sitemaps. robots seo crawler generator">
-          <div class="tool-card-thumb-placeholder">🌐</div>
-          <div class="tool-card-body">
-            <h3>Robots.txt Generator</h3>
-            <p>Build a robots.txt file visually with user-agent rules and sitemaps.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Web &amp; SEO</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="json-formatter" data-category="json-api" data-search="json formatter format, validate, and minify json with syntax highlighting and error detection. json formatter validator minify prettify">
-          <div class="tool-card-thumb-placeholder">🔗</div>
-          <div class="tool-card-body">
-            <h3>JSON Formatter</h3>
-            <p>Format, validate, and minify JSON with syntax highlighting and error detection.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">JSON &amp; API</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="jwt-decoder" data-category="json-api" data-search="jwt decoder decode and inspect json web token header, payload, and signature. jwt decoder token authentication">
-          <div class="tool-card-thumb-placeholder">🔗</div>
-          <div class="tool-card-body">
-            <h3>JWT Decoder</h3>
-            <p>Decode and inspect JSON Web Token header, payload, and signature.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">JSON &amp; API</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="url-encoder-decoder" data-category="json-api" data-search="url encoder / decoder encode and decode url strings, query parameters, and uri components. url encoder decoder uri">
-          <div class="tool-card-thumb-placeholder">🔗</div>
-          <div class="tool-card-body">
-            <h3>URL Encoder / Decoder</h3>
-            <p>Encode and decode URL strings, query parameters, and URI components.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">JSON &amp; API</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="base64-encoder-decoder" data-category="json-api" data-search="base64 encoder / decoder encode and decode base64 strings for text, data uris, and binary data. base64 encoder decoder data-uri">
-          <div class="tool-card-thumb-placeholder">🔗</div>
-          <div class="tool-card-body">
-            <h3>Base64 Encoder / Decoder</h3>
-            <p>Encode and decode Base64 strings for text, data URIs, and binary data.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">JSON &amp; API</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="color-picker" data-category="color" data-search="color picker pick colors and get output in hex, rgb, hsl, and oklch formats. color picker hex rgb hsl">
-          <div class="tool-card-thumb-placeholder">🌈</div>
-          <div class="tool-card-body">
-            <h3>Color Picker</h3>
-            <p>Pick colors and get output in HEX, RGB, HSL, and OKLCH formats.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Color Tools</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="contrast-checker" data-category="accessibility" data-search="contrast checker check wcag 2.1 aa and aaa contrast ratio compliance between two colors. contrast wcag accessibility a11y color">
-          <div class="tool-card-thumb-placeholder">♿</div>
-          <div class="tool-card-body">
-            <h3>Contrast Checker</h3>
-            <p>Check WCAG 2.1 AA and AAA contrast ratio compliance between two colors.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Accessibility</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="gradient-builder" data-category="color" data-search="gradient builder create css linear and radial gradients visually with live preview. gradient css color generator">
-          <div class="tool-card-thumb-placeholder">🌈</div>
-          <div class="tool-card-body">
-            <h3>Gradient Builder</h3>
-            <p>Create CSS linear and radial gradients visually with live preview.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Color Tools</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="box-shadow-generator" data-category="css" data-search="box shadow generator design css box shadows with live preview, multiple layers, and code export. box-shadow css generator design">
-          <div class="tool-card-thumb-placeholder">🎨</div>
-          <div class="tool-card-body">
-            <h3>Box Shadow Generator</h3>
-            <p>Design CSS box shadows with live preview, multiple layers, and code export.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">CSS Tools</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="css-grid-generator" data-category="css" data-search="css grid generator build css grid layouts visually with interactive rows, columns, and areas. css-grid layout generator design">
-          <div class="tool-card-thumb-placeholder">🎨</div>
-          <div class="tool-card-body">
-            <h3>CSS Grid Generator</h3>
-            <p>Build CSS Grid layouts visually with interactive rows, columns, and areas.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">CSS Tools</span>
-              <span class="tag tag-medium">Medium</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="flexbox-playground" data-category="css" data-search="flexbox playground experiment with flexbox properties and see the effects in real time. flexbox css layout playground">
-          <div class="tool-card-thumb-placeholder">🎨</div>
-          <div class="tool-card-body">
-            <h3>Flexbox Playground</h3>
-            <p>Experiment with Flexbox properties and see the effects in real time.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">CSS Tools</span>
-              <span class="tag tag-medium">Medium</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="image-dimension-checker" data-category="image" data-search="image dimension checker drop or upload an image to instantly see its width, height, and aspect ratio. image dimensions aspect-ratio size">
-          <div class="tool-card-thumb-placeholder">🖼️</div>
-          <div class="tool-card-body">
-            <h3>Image Dimension Checker</h3>
-            <p>Drop or upload an image to instantly see its width, height, and aspect ratio.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Image Tools</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="svg-previewer" data-category="image" data-search="svg previewer paste svg code and preview it instantly with zoom and background options. svg preview viewer vector">
-          <div class="tool-card-thumb-placeholder">🖼️</div>
-          <div class="tool-card-body">
-            <h3>SVG Previewer</h3>
-            <p>Paste SVG code and preview it instantly with zoom and background options.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Image Tools</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="lorem-ipsum-generator" data-category="text" data-search="lorem ipsum generator generate placeholder text in paragraphs, sentences, or words. lorem-ipsum placeholder text generator">
-          <div class="tool-card-thumb-placeholder">📝</div>
-          <div class="tool-card-body">
-            <h3>Lorem Ipsum Generator</h3>
-            <p>Generate placeholder text in paragraphs, sentences, or words.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Text &amp; Content</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="word-character-counter" data-category="text" data-search="word / character counter count words, characters, sentences, and paragraphs with reading time. word-count character-count text statistics">
-          <div class="tool-card-thumb-placeholder">📝</div>
-          <div class="tool-card-body">
-            <h3>Word / Character Counter</h3>
-            <p>Count words, characters, sentences, and paragraphs with reading time.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Text &amp; Content</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="case-converter" data-category="text" data-search="case converter transform text between camelcase, snake_case, upper, lower, title, and more. case converter text camelcase snake_case">
-          <div class="tool-card-thumb-placeholder">📝</div>
-          <div class="tool-card-body">
-            <h3>Case Converter</h3>
-            <p>Transform text between camelCase, snake_case, UPPER, lower, Title, and more.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Text &amp; Content</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="regex-tester" data-category="utilities" data-search="regex tester test regular expressions with live matching, group highlighting, and flags. regex tester regular-expression pattern">
-          <div class="tool-card-thumb-placeholder">🛠️</div>
-          <div class="tool-card-body">
-            <h3>Regex Tester</h3>
-            <p>Test regular expressions with live matching, group highlighting, and flags.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Developer Utilities</span>
-              <span class="tag tag-medium">Medium</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="uuid-generator" data-category="utilities" data-search="uuid generator generate random v4 uuids instantly with bulk generation support. uuid generator random identifier">
-          <div class="tool-card-thumb-placeholder">🛠️</div>
-          <div class="tool-card-body">
-            <h3>UUID Generator</h3>
-            <p>Generate random v4 UUIDs instantly with bulk generation support.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Developer Utilities</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="timestamp-converter" data-category="utilities" data-search="timestamp converter convert unix timestamps to human-readable dates and vice versa. timestamp unix date converter epoch">
-          <div class="tool-card-thumb-placeholder">🛠️</div>
-          <div class="tool-card-body">
-            <h3>Timestamp Converter</h3>
-            <p>Convert Unix timestamps to human-readable dates and vice versa.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Developer Utilities</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="hash-generator" data-category="utilities" data-search="hash generator generate md5, sha-1, sha-256, and sha-512 hashes from text input. hash md5 sha cryptography generator">
-          <div class="tool-card-thumb-placeholder">🛠️</div>
-          <div class="tool-card-body">
-            <h3>Hash Generator</h3>
-            <p>Generate MD5, SHA-1, SHA-256, and SHA-512 hashes from text input.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Developer Utilities</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="password-generator" data-category="utilities" data-search="password generator generate strong random passwords with customizable length and characters. password generator security random">
-          <div class="tool-card-thumb-placeholder">🛠️</div>
-          <div class="tool-card-body">
-            <h3>Password Generator</h3>
-            <p>Generate strong random passwords with customizable length and characters.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Developer Utilities</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="qr-code-generator" data-category="utilities" data-search="qr code generator create qr codes from text, urls, or data with download options. qr-code generator barcode">
-          <div class="tool-card-thumb-placeholder">🛠️</div>
-          <div class="tool-card-body">
-            <h3>QR Code Generator</h3>
-            <p>Create QR codes from text, URLs, or data with download options.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Developer Utilities</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="markdown-previewer" data-category="text" data-search="markdown previewer write markdown on the left, see rendered html on the right in real time. markdown preview editor html">
-          <div class="tool-card-thumb-placeholder">📝</div>
-          <div class="tool-card-body">
-            <h3>Markdown Previewer</h3>
-            <p>Write Markdown on the left, see rendered HTML on the right in real time.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Text &amp; Content</span>
-              <span class="tag tag-medium">Medium</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="slug-generator" data-category="text" data-search="slug generator convert text to url-friendly slugs with customizable separators. slug url generator text">
-          <div class="tool-card-thumb-placeholder">📝</div>
-          <div class="tool-card-body">
-            <h3>Slug Generator</h3>
-            <p>Convert text to URL-friendly slugs with customizable separators.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Text &amp; Content</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="cron-expression-builder" data-category="utilities" data-search="cron expression builder build and understand cron schedule expressions with a visual interface. cron scheduler expression builder">
-          <div class="tool-card-thumb-placeholder">🛠️</div>
-          <div class="tool-card-body">
-            <h3>Cron Expression Builder</h3>
-            <p>Build and understand cron schedule expressions with a visual interface.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Developer Utilities</span>
-              <span class="tag tag-medium">Medium</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="user-agent-parser" data-category="browser-network" data-search="user agent parser parse and explain browser user agent strings into readable components. user-agent parser browser detection">
-          <div class="tool-card-thumb-placeholder">🌐</div>
-          <div class="tool-card-body">
-            <h3>User Agent Parser</h3>
-            <p>Parse and explain browser user agent strings into readable components.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Browser &amp; Network</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="viewport-screen-info" data-category="browser-network" data-search="viewport / screen info display current device viewport, screen dimensions, and pixel ratio. viewport screen resolution responsive">
-          <div class="tool-card-thumb-placeholder">🌐</div>
-          <div class="tool-card-body">
-            <h3>Viewport / Screen Info</h3>
-            <p>Display current device viewport, screen dimensions, and pixel ratio.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Browser &amp; Network</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
-            </div>
-          </div>
-        </div>
-        <div class="tool-card" data-id="heading-structure-visualizer" data-category="accessibility" data-search="heading structure visualizer paste html or a url to visualize the heading hierarchy and spot issues. headings structure accessibility a11y html">
-          <div class="tool-card-thumb-placeholder">♿</div>
-          <div class="tool-card-body">
-            <h3>Heading Structure Visualizer</h3>
-            <p>Paste HTML or a URL to visualize the heading hierarchy and spot issues.</p>
-            <div class="tool-card-tags">
-              <span class="tag tag-category">Accessibility</span>
-              <span class="tag tag-easy">Easy</span>
-              <span class="tag tag-idea">Idea</span>
+              <span class="tag tag-live">Live</span>
             </div>
           </div>
         </div>
@@ -806,7 +452,7 @@
         </div>
       </div>
       <div class="d2-stats">
-        <div class="d2-stat"><div class="num">32+</div><div class="label">Tool Ideas</div></div>
+        <div class="d2-stat"><div class="num">1+</div><div class="label">Tool Ideas</div></div>
         <div class="d2-stat"><div class="num">9</div><div class="label">Categories</div></div>
         <div class="d2-stat"><div class="num">0 KB</div><div class="label">npm install</div></div>
         <div class="d2-stat"><div class="num">100%</div><div class="label">Browser-based</div></div>
@@ -815,268 +461,11 @@
           <div class="d2-category">
             <h2>🌐 Web &amp; SEO</h2>
             <div class="d2-category-grid">
-            <div class="d2-tool tool-card" data-id="og-generator" data-category="web-seo" data-search="open graph generator generate open graph meta tags and preview how your links appear on social media. open-graph meta-tags seo social-media preview">
+            <div class="d2-tool tool-card" data-id="open-graph-inspector" data-category="web-seo" data-search="open graph inspector analyze meta tags, social previews, and seo metadata for any url with actionable scores. open-graph meta-tags seo social-media preview analyzer twitter-card facebook og-tags validator">
               <div class="d2-tool-icon">🌐</div>
               <div class="d2-tool-info">
-                <h4>Open Graph Generator</h4>
-                <p>Generate Open Graph meta tags and preview how your links appear on social media.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="og-checker" data-category="web-seo" data-search="open graph checker validate and preview existing open graph tags from any url. open-graph validator seo meta-tags">
-              <div class="d2-tool-icon">🌐</div>
-              <div class="d2-tool-info">
-                <h4>Open Graph Checker</h4>
-                <p>Validate and preview existing Open Graph tags from any URL.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="meta-tag-generator" data-category="web-seo" data-search="meta tag generator create standard html meta tags for seo, social sharing, and browser behavior. meta-tags seo html generator">
-              <div class="d2-tool-icon">🌐</div>
-              <div class="d2-tool-info">
-                <h4>Meta Tag Generator</h4>
-                <p>Create standard HTML meta tags for SEO, social sharing, and browser behavior.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="twitter-card-preview" data-category="web-seo" data-search="twitter / x card preview preview how your links will appear when shared on twitter / x. twitter card preview social-media">
-              <div class="d2-tool-icon">🌐</div>
-              <div class="d2-tool-info">
-                <h4>Twitter / X Card Preview</h4>
-                <p>Preview how your links will appear when shared on Twitter / X.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="robots-txt-generator" data-category="web-seo" data-search="robots.txt generator build a robots.txt file visually with user-agent rules and sitemaps. robots seo crawler generator">
-              <div class="d2-tool-icon">🌐</div>
-              <div class="d2-tool-info">
-                <h4>Robots.txt Generator</h4>
-                <p>Build a robots.txt file visually with user-agent rules and sitemaps.</p>
-              </div>
-            </div>
-            </div>
-          </div>
-          <div class="d2-category">
-            <h2>🖼️ Image Tools</h2>
-            <div class="d2-category-grid">
-            <div class="d2-tool tool-card" data-id="image-dimension-checker" data-category="image" data-search="image dimension checker drop or upload an image to instantly see its width, height, and aspect ratio. image dimensions aspect-ratio size">
-              <div class="d2-tool-icon">🖼️</div>
-              <div class="d2-tool-info">
-                <h4>Image Dimension Checker</h4>
-                <p>Drop or upload an image to instantly see its width, height, and aspect ratio.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="svg-previewer" data-category="image" data-search="svg previewer paste svg code and preview it instantly with zoom and background options. svg preview viewer vector">
-              <div class="d2-tool-icon">🖼️</div>
-              <div class="d2-tool-info">
-                <h4>SVG Previewer</h4>
-                <p>Paste SVG code and preview it instantly with zoom and background options.</p>
-              </div>
-            </div>
-            </div>
-          </div>
-          <div class="d2-category">
-            <h2>🌈 Color Tools</h2>
-            <div class="d2-category-grid">
-            <div class="d2-tool tool-card" data-id="color-picker" data-category="color" data-search="color picker pick colors and get output in hex, rgb, hsl, and oklch formats. color picker hex rgb hsl">
-              <div class="d2-tool-icon">🌈</div>
-              <div class="d2-tool-info">
-                <h4>Color Picker</h4>
-                <p>Pick colors and get output in HEX, RGB, HSL, and OKLCH formats.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="gradient-builder" data-category="color" data-search="gradient builder create css linear and radial gradients visually with live preview. gradient css color generator">
-              <div class="d2-tool-icon">🌈</div>
-              <div class="d2-tool-info">
-                <h4>Gradient Builder</h4>
-                <p>Create CSS linear and radial gradients visually with live preview.</p>
-              </div>
-            </div>
-            </div>
-          </div>
-          <div class="d2-category">
-            <h2>🎨 CSS Tools</h2>
-            <div class="d2-category-grid">
-            <div class="d2-tool tool-card" data-id="box-shadow-generator" data-category="css" data-search="box shadow generator design css box shadows with live preview, multiple layers, and code export. box-shadow css generator design">
-              <div class="d2-tool-icon">🎨</div>
-              <div class="d2-tool-info">
-                <h4>Box Shadow Generator</h4>
-                <p>Design CSS box shadows with live preview, multiple layers, and code export.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="css-grid-generator" data-category="css" data-search="css grid generator build css grid layouts visually with interactive rows, columns, and areas. css-grid layout generator design">
-              <div class="d2-tool-icon">🎨</div>
-              <div class="d2-tool-info">
-                <h4>CSS Grid Generator</h4>
-                <p>Build CSS Grid layouts visually with interactive rows, columns, and areas.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="flexbox-playground" data-category="css" data-search="flexbox playground experiment with flexbox properties and see the effects in real time. flexbox css layout playground">
-              <div class="d2-tool-icon">🎨</div>
-              <div class="d2-tool-info">
-                <h4>Flexbox Playground</h4>
-                <p>Experiment with Flexbox properties and see the effects in real time.</p>
-              </div>
-            </div>
-            </div>
-          </div>
-          <div class="d2-category">
-            <h2>📝 Text &amp; Content</h2>
-            <div class="d2-category-grid">
-            <div class="d2-tool tool-card" data-id="lorem-ipsum-generator" data-category="text" data-search="lorem ipsum generator generate placeholder text in paragraphs, sentences, or words. lorem-ipsum placeholder text generator">
-              <div class="d2-tool-icon">📝</div>
-              <div class="d2-tool-info">
-                <h4>Lorem Ipsum Generator</h4>
-                <p>Generate placeholder text in paragraphs, sentences, or words.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="word-character-counter" data-category="text" data-search="word / character counter count words, characters, sentences, and paragraphs with reading time. word-count character-count text statistics">
-              <div class="d2-tool-icon">📝</div>
-              <div class="d2-tool-info">
-                <h4>Word / Character Counter</h4>
-                <p>Count words, characters, sentences, and paragraphs with reading time.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="case-converter" data-category="text" data-search="case converter transform text between camelcase, snake_case, upper, lower, title, and more. case converter text camelcase snake_case">
-              <div class="d2-tool-icon">📝</div>
-              <div class="d2-tool-info">
-                <h4>Case Converter</h4>
-                <p>Transform text between camelCase, snake_case, UPPER, lower, Title, and more.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="markdown-previewer" data-category="text" data-search="markdown previewer write markdown on the left, see rendered html on the right in real time. markdown preview editor html">
-              <div class="d2-tool-icon">📝</div>
-              <div class="d2-tool-info">
-                <h4>Markdown Previewer</h4>
-                <p>Write Markdown on the left, see rendered HTML on the right in real time.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="slug-generator" data-category="text" data-search="slug generator convert text to url-friendly slugs with customizable separators. slug url generator text">
-              <div class="d2-tool-icon">📝</div>
-              <div class="d2-tool-info">
-                <h4>Slug Generator</h4>
-                <p>Convert text to URL-friendly slugs with customizable separators.</p>
-              </div>
-            </div>
-            </div>
-          </div>
-          <div class="d2-category">
-            <h2>🔗 JSON &amp; API</h2>
-            <div class="d2-category-grid">
-            <div class="d2-tool tool-card" data-id="json-formatter" data-category="json-api" data-search="json formatter format, validate, and minify json with syntax highlighting and error detection. json formatter validator minify prettify">
-              <div class="d2-tool-icon">🔗</div>
-              <div class="d2-tool-info">
-                <h4>JSON Formatter</h4>
-                <p>Format, validate, and minify JSON with syntax highlighting and error detection.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="jwt-decoder" data-category="json-api" data-search="jwt decoder decode and inspect json web token header, payload, and signature. jwt decoder token authentication">
-              <div class="d2-tool-icon">🔗</div>
-              <div class="d2-tool-info">
-                <h4>JWT Decoder</h4>
-                <p>Decode and inspect JSON Web Token header, payload, and signature.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="url-encoder-decoder" data-category="json-api" data-search="url encoder / decoder encode and decode url strings, query parameters, and uri components. url encoder decoder uri">
-              <div class="d2-tool-icon">🔗</div>
-              <div class="d2-tool-info">
-                <h4>URL Encoder / Decoder</h4>
-                <p>Encode and decode URL strings, query parameters, and URI components.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="base64-encoder-decoder" data-category="json-api" data-search="base64 encoder / decoder encode and decode base64 strings for text, data uris, and binary data. base64 encoder decoder data-uri">
-              <div class="d2-tool-icon">🔗</div>
-              <div class="d2-tool-info">
-                <h4>Base64 Encoder / Decoder</h4>
-                <p>Encode and decode Base64 strings for text, data URIs, and binary data.</p>
-              </div>
-            </div>
-            </div>
-          </div>
-          <div class="d2-category">
-            <h2>🛠️ Developer Utilities</h2>
-            <div class="d2-category-grid">
-            <div class="d2-tool tool-card" data-id="regex-tester" data-category="utilities" data-search="regex tester test regular expressions with live matching, group highlighting, and flags. regex tester regular-expression pattern">
-              <div class="d2-tool-icon">🛠️</div>
-              <div class="d2-tool-info">
-                <h4>Regex Tester</h4>
-                <p>Test regular expressions with live matching, group highlighting, and flags.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="uuid-generator" data-category="utilities" data-search="uuid generator generate random v4 uuids instantly with bulk generation support. uuid generator random identifier">
-              <div class="d2-tool-icon">🛠️</div>
-              <div class="d2-tool-info">
-                <h4>UUID Generator</h4>
-                <p>Generate random v4 UUIDs instantly with bulk generation support.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="timestamp-converter" data-category="utilities" data-search="timestamp converter convert unix timestamps to human-readable dates and vice versa. timestamp unix date converter epoch">
-              <div class="d2-tool-icon">🛠️</div>
-              <div class="d2-tool-info">
-                <h4>Timestamp Converter</h4>
-                <p>Convert Unix timestamps to human-readable dates and vice versa.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="hash-generator" data-category="utilities" data-search="hash generator generate md5, sha-1, sha-256, and sha-512 hashes from text input. hash md5 sha cryptography generator">
-              <div class="d2-tool-icon">🛠️</div>
-              <div class="d2-tool-info">
-                <h4>Hash Generator</h4>
-                <p>Generate MD5, SHA-1, SHA-256, and SHA-512 hashes from text input.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="password-generator" data-category="utilities" data-search="password generator generate strong random passwords with customizable length and characters. password generator security random">
-              <div class="d2-tool-icon">🛠️</div>
-              <div class="d2-tool-info">
-                <h4>Password Generator</h4>
-                <p>Generate strong random passwords with customizable length and characters.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="qr-code-generator" data-category="utilities" data-search="qr code generator create qr codes from text, urls, or data with download options. qr-code generator barcode">
-              <div class="d2-tool-icon">🛠️</div>
-              <div class="d2-tool-info">
-                <h4>QR Code Generator</h4>
-                <p>Create QR codes from text, URLs, or data with download options.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="cron-expression-builder" data-category="utilities" data-search="cron expression builder build and understand cron schedule expressions with a visual interface. cron scheduler expression builder">
-              <div class="d2-tool-icon">🛠️</div>
-              <div class="d2-tool-info">
-                <h4>Cron Expression Builder</h4>
-                <p>Build and understand cron schedule expressions with a visual interface.</p>
-              </div>
-            </div>
-            </div>
-          </div>
-          <div class="d2-category">
-            <h2>🌐 Browser &amp; Network</h2>
-            <div class="d2-category-grid">
-            <div class="d2-tool tool-card" data-id="user-agent-parser" data-category="browser-network" data-search="user agent parser parse and explain browser user agent strings into readable components. user-agent parser browser detection">
-              <div class="d2-tool-icon">🌐</div>
-              <div class="d2-tool-info">
-                <h4>User Agent Parser</h4>
-                <p>Parse and explain browser user agent strings into readable components.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="viewport-screen-info" data-category="browser-network" data-search="viewport / screen info display current device viewport, screen dimensions, and pixel ratio. viewport screen resolution responsive">
-              <div class="d2-tool-icon">🌐</div>
-              <div class="d2-tool-info">
-                <h4>Viewport / Screen Info</h4>
-                <p>Display current device viewport, screen dimensions, and pixel ratio.</p>
-              </div>
-            </div>
-            </div>
-          </div>
-          <div class="d2-category">
-            <h2>♿ Accessibility</h2>
-            <div class="d2-category-grid">
-            <div class="d2-tool tool-card" data-id="contrast-checker" data-category="accessibility" data-search="contrast checker check wcag 2.1 aa and aaa contrast ratio compliance between two colors. contrast wcag accessibility a11y color">
-              <div class="d2-tool-icon">♿</div>
-              <div class="d2-tool-info">
-                <h4>Contrast Checker</h4>
-                <p>Check WCAG 2.1 AA and AAA contrast ratio compliance between two colors.</p>
-              </div>
-            </div>
-            <div class="d2-tool tool-card" data-id="heading-structure-visualizer" data-category="accessibility" data-search="heading structure visualizer paste html or a url to visualize the heading hierarchy and spot issues. headings structure accessibility a11y html">
-              <div class="d2-tool-icon">♿</div>
-              <div class="d2-tool-info">
-                <h4>Heading Structure Visualizer</h4>
-                <p>Paste HTML or a URL to visualize the heading hierarchy and spot issues.</p>
+                <h4>Open Graph Inspector</h4>
+                <p>Analyze meta tags, social previews, and SEO metadata for any URL with actionable scores.</p>
               </div>
             </div>
             </div>
@@ -1122,55 +511,55 @@
             <div class="icon">🌐</div>
             <h3>Web &amp; SEO</h3>
             <p>Meta tags, OG previews, sitemaps, and SEO utilities</p>
-            <span class="count">5 tools</span>
+            <span class="count">1 tool</span>
           </div>
           <div class="d3-cat-card">
             <div class="icon">🖼️</div>
             <h3>Image Tools</h3>
             <p>Dimensions, converters, SVG, favicons, and metadata</p>
-            <span class="count">2 tools</span>
+            <span class="count">0 tools</span>
           </div>
           <div class="d3-cat-card">
             <div class="icon">🌈</div>
             <h3>Color Tools</h3>
             <p>Pickers, contrast checkers, palettes, and converters</p>
-            <span class="count">2 tools</span>
+            <span class="count">0 tools</span>
           </div>
           <div class="d3-cat-card">
             <div class="icon">🎨</div>
             <h3>CSS Tools</h3>
             <p>Shadows, grids, flexbox, gradients, and generators</p>
-            <span class="count">3 tools</span>
+            <span class="count">0 tools</span>
           </div>
           <div class="d3-cat-card">
             <div class="icon">📝</div>
             <h3>Text &amp; Content</h3>
             <p>Counters, converters, diffs, and Markdown preview</p>
-            <span class="count">5 tools</span>
+            <span class="count">0 tools</span>
           </div>
           <div class="d3-cat-card">
             <div class="icon">🔗</div>
             <h3>JSON &amp; API</h3>
             <p>Formatters, JWT decoders, URL encoders, and curl builders</p>
-            <span class="count">4 tools</span>
+            <span class="count">0 tools</span>
           </div>
           <div class="d3-cat-card">
             <div class="icon">🛠️</div>
             <h3>Developer Utilities</h3>
             <p>UUIDs, hashes, regex, cron, passwords, and QR codes</p>
-            <span class="count">7 tools</span>
+            <span class="count">0 tools</span>
           </div>
           <div class="d3-cat-card">
             <div class="icon">🌐</div>
             <h3>Browser &amp; Network</h3>
             <p>User agents, viewport info, cookies, and headers</p>
-            <span class="count">2 tools</span>
+            <span class="count">0 tools</span>
           </div>
           <div class="d3-cat-card">
             <div class="icon">♿</div>
             <h3>Accessibility</h3>
             <p>Contrast checkers, heading structure, ARIA references</p>
-            <span class="count">2 tools</span>
+            <span class="count">0 tools</span>
           </div>
       </div>
       
@@ -1205,205 +594,10 @@
           <div class="d4-section">
             <div class="d4-section-header">// Web &amp; SEO</div>
             <ul class="d4-list">
-              <li class="tool-card" data-id="og-generator">
-                <span class="name">og-generator</span>
-                <span class="desc">Generate Open Graph meta tags and preview how your links appear on social media.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="og-checker">
-                <span class="name">og-checker</span>
-                <span class="desc">Validate and preview existing Open Graph tags from any URL.</span>
+              <li class="tool-card" data-id="open-graph-inspector">
+                <span class="name">open-graph-inspector</span>
+                <span class="desc">Analyze meta tags, social previews, and SEO metadata for any URL with actionable scores.</span>
                 <span class="diff diff-medium">MED</span>
-              </li>
-              <li class="tool-card" data-id="meta-tag-generator">
-                <span class="name">meta-tag-generator</span>
-                <span class="desc">Create standard HTML meta tags for SEO, social sharing, and browser behavior.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="twitter-card-preview">
-                <span class="name">twitter-card-preview</span>
-                <span class="desc">Preview how your links will appear when shared on Twitter / X.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="robots-txt-generator">
-                <span class="name">robots-txt-generator</span>
-                <span class="desc">Build a robots.txt file visually with user-agent rules and sitemaps.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-            </ul>
-          </div>
-          <div class="d4-section">
-            <div class="d4-section-header">// Image Tools</div>
-            <ul class="d4-list">
-              <li class="tool-card" data-id="image-dimension-checker">
-                <span class="name">image-dimension-checker</span>
-                <span class="desc">Drop or upload an image to instantly see its width, height, and aspect ratio.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="svg-previewer">
-                <span class="name">svg-previewer</span>
-                <span class="desc">Paste SVG code and preview it instantly with zoom and background options.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-            </ul>
-          </div>
-          <div class="d4-section">
-            <div class="d4-section-header">// Color Tools</div>
-            <ul class="d4-list">
-              <li class="tool-card" data-id="color-picker">
-                <span class="name">color-picker</span>
-                <span class="desc">Pick colors and get output in HEX, RGB, HSL, and OKLCH formats.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="gradient-builder">
-                <span class="name">gradient-builder</span>
-                <span class="desc">Create CSS linear and radial gradients visually with live preview.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-            </ul>
-          </div>
-          <div class="d4-section">
-            <div class="d4-section-header">// CSS Tools</div>
-            <ul class="d4-list">
-              <li class="tool-card" data-id="box-shadow-generator">
-                <span class="name">box-shadow-generator</span>
-                <span class="desc">Design CSS box shadows with live preview, multiple layers, and code export.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="css-grid-generator">
-                <span class="name">css-grid-generator</span>
-                <span class="desc">Build CSS Grid layouts visually with interactive rows, columns, and areas.</span>
-                <span class="diff diff-medium">MED</span>
-              </li>
-              <li class="tool-card" data-id="flexbox-playground">
-                <span class="name">flexbox-playground</span>
-                <span class="desc">Experiment with Flexbox properties and see the effects in real time.</span>
-                <span class="diff diff-medium">MED</span>
-              </li>
-            </ul>
-          </div>
-          <div class="d4-section">
-            <div class="d4-section-header">// Text &amp; Content</div>
-            <ul class="d4-list">
-              <li class="tool-card" data-id="lorem-ipsum-generator">
-                <span class="name">lorem-ipsum-generator</span>
-                <span class="desc">Generate placeholder text in paragraphs, sentences, or words.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="word-character-counter">
-                <span class="name">word-character-counter</span>
-                <span class="desc">Count words, characters, sentences, and paragraphs with reading time.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="case-converter">
-                <span class="name">case-converter</span>
-                <span class="desc">Transform text between camelCase, snake_case, UPPER, lower, Title, and more.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="markdown-previewer">
-                <span class="name">markdown-previewer</span>
-                <span class="desc">Write Markdown on the left, see rendered HTML on the right in real time.</span>
-                <span class="diff diff-medium">MED</span>
-              </li>
-              <li class="tool-card" data-id="slug-generator">
-                <span class="name">slug-generator</span>
-                <span class="desc">Convert text to URL-friendly slugs with customizable separators.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-            </ul>
-          </div>
-          <div class="d4-section">
-            <div class="d4-section-header">// JSON &amp; API</div>
-            <ul class="d4-list">
-              <li class="tool-card" data-id="json-formatter">
-                <span class="name">json-formatter</span>
-                <span class="desc">Format, validate, and minify JSON with syntax highlighting and error detection.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="jwt-decoder">
-                <span class="name">jwt-decoder</span>
-                <span class="desc">Decode and inspect JSON Web Token header, payload, and signature.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="url-encoder-decoder">
-                <span class="name">url-encoder-decoder</span>
-                <span class="desc">Encode and decode URL strings, query parameters, and URI components.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="base64-encoder-decoder">
-                <span class="name">base64-encoder-decoder</span>
-                <span class="desc">Encode and decode Base64 strings for text, data URIs, and binary data.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-            </ul>
-          </div>
-          <div class="d4-section">
-            <div class="d4-section-header">// Developer Utilities</div>
-            <ul class="d4-list">
-              <li class="tool-card" data-id="regex-tester">
-                <span class="name">regex-tester</span>
-                <span class="desc">Test regular expressions with live matching, group highlighting, and flags.</span>
-                <span class="diff diff-medium">MED</span>
-              </li>
-              <li class="tool-card" data-id="uuid-generator">
-                <span class="name">uuid-generator</span>
-                <span class="desc">Generate random v4 UUIDs instantly with bulk generation support.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="timestamp-converter">
-                <span class="name">timestamp-converter</span>
-                <span class="desc">Convert Unix timestamps to human-readable dates and vice versa.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="hash-generator">
-                <span class="name">hash-generator</span>
-                <span class="desc">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes from text input.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="password-generator">
-                <span class="name">password-generator</span>
-                <span class="desc">Generate strong random passwords with customizable length and characters.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="qr-code-generator">
-                <span class="name">qr-code-generator</span>
-                <span class="desc">Create QR codes from text, URLs, or data with download options.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="cron-expression-builder">
-                <span class="name">cron-expression-builder</span>
-                <span class="desc">Build and understand cron schedule expressions with a visual interface.</span>
-                <span class="diff diff-medium">MED</span>
-              </li>
-            </ul>
-          </div>
-          <div class="d4-section">
-            <div class="d4-section-header">// Browser &amp; Network</div>
-            <ul class="d4-list">
-              <li class="tool-card" data-id="user-agent-parser">
-                <span class="name">user-agent-parser</span>
-                <span class="desc">Parse and explain browser user agent strings into readable components.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="viewport-screen-info">
-                <span class="name">viewport-screen-info</span>
-                <span class="desc">Display current device viewport, screen dimensions, and pixel ratio.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-            </ul>
-          </div>
-          <div class="d4-section">
-            <div class="d4-section-header">// Accessibility</div>
-            <ul class="d4-list">
-              <li class="tool-card" data-id="contrast-checker">
-                <span class="name">contrast-checker</span>
-                <span class="desc">Check WCAG 2.1 AA and AAA contrast ratio compliance between two colors.</span>
-                <span class="diff diff-easy">EASY</span>
-              </li>
-              <li class="tool-card" data-id="heading-structure-visualizer">
-                <span class="name">heading-structure-visualizer</span>
-                <span class="desc">Paste HTML or a URL to visualize the heading hierarchy and spot issues.</span>
-                <span class="diff diff-easy">EASY</span>
               </li>
             </ul>
           </div>
@@ -1427,9 +621,9 @@
             <h1>One File Tools</h1>
             <p>Developer tools, one file each. No build step. No dependencies. No frameworks.</p>
           </div>
-          <div class="d5-cell d5-stat-cell"><div class="num">32+</div><div class="label">Tool Ideas</div></div>
+          <div class="d5-cell d5-stat-cell"><div class="num">1+</div><div class="label">Tool Ideas</div></div>
           <div class="d5-cell d5-stat-cell"><div class="num">9</div><div class="label">Categories</div></div>
-          <div class="d5-cell d5-stat-cell"><div class="num">0</div><div class="label">Live Tools</div></div>
+          <div class="d5-cell d5-stat-cell"><div class="num">1</div><div class="label">Live Tools</div></div>
           <div class="d5-cell d5-stat-cell"><div class="num">0</div><div class="label">Dependencies</div></div>
           <div class="d5-cell span-2">
             <div class="icon">💡</div>
@@ -1453,22 +647,22 @@
           <div class="d5-cell">
             <div class="icon">🌐</div>
             <h3>Web &amp; SEO</h3>
-            <ul class="d5-tool-list"><li>Open Graph Generator</li><li>Open Graph Checker</li><li>Meta Tag Generator</li><li>Twitter / X Card Preview</li></ul>
+            <ul class="d5-tool-list"><li>Open Graph Inspector</li></ul>
           </div>
           <div class="d5-cell">
             <div class="icon">🖼️</div>
             <h3>Image Tools</h3>
-            <ul class="d5-tool-list"><li>Image Dimension Checker</li><li>SVG Previewer</li></ul>
+            <ul class="d5-tool-list"></ul>
           </div>
           <div class="d5-cell">
             <div class="icon">🌈</div>
             <h3>Color Tools</h3>
-            <ul class="d5-tool-list"><li>Color Picker</li><li>Gradient Builder</li></ul>
+            <ul class="d5-tool-list"></ul>
           </div>
           <div class="d5-cell">
             <div class="icon">🎨</div>
             <h3>CSS Tools</h3>
-            <ul class="d5-tool-list"><li>Box Shadow Generator</li><li>CSS Grid Generator</li><li>Flexbox Playground</li></ul>
+            <ul class="d5-tool-list"></ul>
           </div>
           <div class="d5-cell span-4" style="text-align:center">
             <div class="icon">🎓</div>
@@ -1501,7 +695,7 @@
 
     <script>
       // ── Tool Data (embedded at build time) ──
-      var TOOLS = [{"id":"og-generator","name":"Open Graph Generator","shortDescription":"Generate Open Graph meta tags and preview how your links appear on social media.","longDescriptionHtml":"<h2>Open Graph Generator</h2>\n<p>Create perfectly formatted Open Graph meta tags for your website. Preview how your links will appear when shared on Facebook, Twitter, LinkedIn, and other social platforms.</p>\n<h3>Features</h3>\n<ul>\n<li>Live preview of social cards</li>\n<li>Generate <code>og:title</code>, <code>og:description</code>, <code>og:image</code>, and more</li>\n<li>Copy-paste ready meta tag output</li>\n<li>Twitter Card support</li>\n<li>LinkedIn preview</li>\n</ul>\n","category":"web-seo","categoryName":"Web & SEO","categoryIcon":"🌐","tags":["open-graph","meta-tags","seo","social-media","preview"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/og-generator.html","thumbnail":"tools/og-generator.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/og-generator.html","live":"https://one-file-tools.pages.dev/tools/og-generator.html"},{"id":"og-checker","name":"Open Graph Checker","shortDescription":"Validate and preview existing Open Graph tags from any URL.","longDescriptionHtml":"<h2>Open Graph Checker</h2>\n<p>Paste any URL and instantly see its Open Graph metadata. Validates required tags, shows warnings for missing properties, and previews how the link appears on social platforms.</p>\n<h3>Features</h3>\n<ul>\n<li>Fetch and parse OG tags from any URL</li>\n<li>Validation against OG protocol spec</li>\n<li>Visual preview cards</li>\n<li>Warning for missing recommended tags</li>\n</ul>\n","category":"web-seo","categoryName":"Web & SEO","categoryIcon":"🌐","tags":["open-graph","validator","seo","meta-tags"],"techStack":["HTML5","CSS3","Vanilla JS","Fetch API"],"difficulty":"Medium","status":"idea","hasThumbnail":false,"file":"tools/og-checker.html","thumbnail":"tools/og-checker.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/og-checker.html","live":"https://one-file-tools.pages.dev/tools/og-checker.html"},{"id":"meta-tag-generator","name":"Meta Tag Generator","shortDescription":"Create standard HTML meta tags for SEO, social sharing, and browser behavior.","longDescriptionHtml":"<h2>Meta Tag Generator</h2>\n<p>A comprehensive meta tag builder that generates all the essential HTML meta tags your page needs. Covers SEO, social sharing, viewport, charset, and more.</p>\n<h3>Features</h3>\n<ul>\n<li>SEO meta tags (title, description, keywords, robots)</li>\n<li>Social meta tags (OG, Twitter Card)</li>\n<li>Technical meta tags (charset, viewport, theme-color)</li>\n<li>Copy all tags with one click</li>\n</ul>\n","category":"web-seo","categoryName":"Web & SEO","categoryIcon":"🌐","tags":["meta-tags","seo","html","generator"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/meta-tag-generator.html","thumbnail":"tools/meta-tag-generator.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/meta-tag-generator.html","live":"https://one-file-tools.pages.dev/tools/meta-tag-generator.html"},{"id":"twitter-card-preview","name":"Twitter / X Card Preview","shortDescription":"Preview how your links will appear when shared on Twitter / X.","longDescriptionHtml":"<h2>Twitter / X Card Preview</h2>\n<p>See exactly how your links will look when shared on Twitter / X. Supports Summary, Summary Large Image, App, and Player card types.</p>\n<h3>Features</h3>\n<ul>\n<li>All Twitter Card types supported</li>\n<li>Live preview as you type</li>\n<li>Validation of required fields</li>\n<li>Generate twitter:card meta tags</li>\n</ul>\n","category":"web-seo","categoryName":"Web & SEO","categoryIcon":"🌐","tags":["twitter","card","preview","social-media"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/twitter-card-preview.html","thumbnail":"tools/twitter-card-preview.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/twitter-card-preview.html","live":"https://one-file-tools.pages.dev/tools/twitter-card-preview.html"},{"id":"robots-txt-generator","name":"Robots.txt Generator","shortDescription":"Build a robots.txt file visually with user-agent rules and sitemaps.","longDescriptionHtml":"<h2>Robots.txt Generator</h2>\n<p>Create robots.txt files without memorizing the syntax. Add user-agent rules, allow/disallow paths, and sitemap references through a visual interface.</p>\n<h3>Features</h3>\n<ul>\n<li>Add multiple user-agent blocks</li>\n<li>Allow and disallow paths</li>\n<li>Sitemap URL support</li>\n<li>Crawl-delay setting</li>\n<li>Download or copy the generated file</li>\n</ul>\n","category":"web-seo","categoryName":"Web & SEO","categoryIcon":"🌐","tags":["robots","seo","crawler","generator"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/robots-txt-generator.html","thumbnail":"tools/robots-txt-generator.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/robots-txt-generator.html","live":"https://one-file-tools.pages.dev/tools/robots-txt-generator.html"},{"id":"json-formatter","name":"JSON Formatter","shortDescription":"Format, validate, and minify JSON with syntax highlighting and error detection.","longDescriptionHtml":"<h2>JSON Formatter</h2>\n<p>Paste messy JSON and get it beautifully formatted instantly. Validates JSON structure, highlights syntax errors with line numbers, and can minify for production use.</p>\n<h3>Features</h3>\n<ul>\n<li>Format / prettify JSON with configurable indentation</li>\n<li>Minify JSON (remove whitespace)</li>\n<li>Syntax highlighting</li>\n<li>Error detection with line and column numbers</li>\n<li>Copy formatted output</li>\n<li>Download as .json file</li>\n</ul>\n","category":"json-api","categoryName":"JSON & API","categoryIcon":"🔗","tags":["json","formatter","validator","minify","prettify"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/json-formatter.html","thumbnail":"tools/json-formatter.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/json-formatter.html","live":"https://one-file-tools.pages.dev/tools/json-formatter.html"},{"id":"jwt-decoder","name":"JWT Decoder","shortDescription":"Decode and inspect JSON Web Token header, payload, and signature.","longDescriptionHtml":"<h2>JWT Decoder</h2>\n<p>Paste a JWT and instantly see its decoded header, payload, and signature. Highlights expiration, issued-at, and other standard claims.</p>\n<h3>Features</h3>\n<ul>\n<li>Decode header and payload</li>\n<li>Highlight standard claims (exp, iat, sub, iss)</li>\n<li>Expiration check (expired / valid / no expiry)</li>\n<li>Color-coded token parts</li>\n<li>Copy decoded sections</li>\n</ul>\n","category":"json-api","categoryName":"JSON & API","categoryIcon":"🔗","tags":["jwt","decoder","token","authentication"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/jwt-decoder.html","thumbnail":"tools/jwt-decoder.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/jwt-decoder.html","live":"https://one-file-tools.pages.dev/tools/jwt-decoder.html"},{"id":"url-encoder-decoder","name":"URL Encoder / Decoder","shortDescription":"Encode and decode URL strings, query parameters, and URI components.","longDescriptionHtml":"<h2>URL Encoder / Decoder</h2>\n<p>Quickly encode or decode URLs and URI components. Handles special characters, query strings, and full URLs.</p>\n<h3>Features</h3>\n<ul>\n<li>Encode / decode full URLs</li>\n<li>Encode / decode URI components</li>\n<li>Handle special characters</li>\n<li>Batch mode for multiple values</li>\n<li>Copy result to clipboard</li>\n</ul>\n","category":"json-api","categoryName":"JSON & API","categoryIcon":"🔗","tags":["url","encoder","decoder","uri"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/url-encoder-decoder.html","thumbnail":"tools/url-encoder-decoder.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/url-encoder-decoder.html","live":"https://one-file-tools.pages.dev/tools/url-encoder-decoder.html"},{"id":"base64-encoder-decoder","name":"Base64 Encoder / Decoder","shortDescription":"Encode and decode Base64 strings for text, data URIs, and binary data.","longDescriptionHtml":"<h2>Base64 Encoder / Decoder</h2>\n<p>Convert text to Base64 and back. Supports UTF-8 text, binary data, and data URI generation for images.</p>\n<h3>Features</h3>\n<ul>\n<li>Text to Base64 encoding</li>\n<li>Base64 to text decoding</li>\n<li>File to Base64 conversion</li>\n<li>Data URI generation</li>\n<li>UTF-8 support</li>\n</ul>\n","category":"json-api","categoryName":"JSON & API","categoryIcon":"🔗","tags":["base64","encoder","decoder","data-uri"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/base64-encoder-decoder.html","thumbnail":"tools/base64-encoder-decoder.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/base64-encoder-decoder.html","live":"https://one-file-tools.pages.dev/tools/base64-encoder-decoder.html"},{"id":"color-picker","name":"Color Picker","shortDescription":"Pick colors and get output in HEX, RGB, HSL, and OKLCH formats.","longDescriptionHtml":"<h2>Color Picker</h2>\n<p>A visual color picker that outputs colors in every format you need. Pick from the color wheel or enter values directly.</p>\n<h3>Features</h3>\n<ul>\n<li>Visual color wheel / area picker</li>\n<li>HEX, RGB, HSL, OKLCH output</li>\n<li>Copy any format to clipboard</li>\n<li>Color history (recent picks)</li>\n<li>Named CSS colors reference</li>\n</ul>\n","category":"color","categoryName":"Color Tools","categoryIcon":"🌈","tags":["color","picker","hex","rgb","hsl"],"techStack":["HTML5","CSS3","Canvas API"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/color-picker.html","thumbnail":"tools/color-picker.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/color-picker.html","live":"https://one-file-tools.pages.dev/tools/color-picker.html"},{"id":"contrast-checker","name":"Contrast Checker","shortDescription":"Check WCAG 2.1 AA and AAA contrast ratio compliance between two colors.","longDescriptionHtml":"<h2>Contrast Checker</h2>\n<p>Verify that your text and background color combinations meet WCAG 2.1 accessibility standards. Shows pass/fail for both AA and AAA levels.</p>\n<h3>Features</h3>\n<ul>\n<li>WCAG 2.1 contrast ratio calculation</li>\n<li>AA and AAA pass/fail indicators</li>\n<li>Large text and normal text checks</li>\n<li>Visual preview of the color combination</li>\n<li>Suggest closest accessible color</li>\n</ul>\n","category":"accessibility","categoryName":"Accessibility","categoryIcon":"♿","tags":["contrast","wcag","accessibility","a11y","color"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/contrast-checker.html","thumbnail":"tools/contrast-checker.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/contrast-checker.html","live":"https://one-file-tools.pages.dev/tools/contrast-checker.html"},{"id":"gradient-builder","name":"Gradient Builder","shortDescription":"Create CSS linear and radial gradients visually with live preview.","longDescriptionHtml":"<h2>Gradient Builder</h2>\n<p>Design beautiful CSS gradients with a visual editor. Supports linear and radial gradients with multiple color stops.</p>\n<h3>Features</h3>\n<ul>\n<li>Linear and radial gradient support</li>\n<li>Multiple color stops with drag positioning</li>\n<li>Angle / direction control</li>\n<li>Live CSS output</li>\n<li>Copy CSS to clipboard</li>\n<li>Preset gradients library</li>\n</ul>\n","category":"color","categoryName":"Color Tools","categoryIcon":"🌈","tags":["gradient","css","color","generator"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/gradient-builder.html","thumbnail":"tools/gradient-builder.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/gradient-builder.html","live":"https://one-file-tools.pages.dev/tools/gradient-builder.html"},{"id":"box-shadow-generator","name":"Box Shadow Generator","shortDescription":"Design CSS box shadows with live preview, multiple layers, and code export.","longDescriptionHtml":"<h2>Box Shadow Generator</h2>\n<p>Create beautiful CSS box shadows with a visual editor. Add multiple shadow layers, adjust offsets, blur, spread, and color.</p>\n<h3>Features</h3>\n<ul>\n<li>Multiple shadow layers</li>\n<li>Horizontal and vertical offset sliders</li>\n<li>Blur radius and spread control</li>\n<li>Color picker with opacity</li>\n<li>Inset shadow toggle</li>\n<li>Live preview and CSS output</li>\n</ul>\n","category":"css","categoryName":"CSS Tools","categoryIcon":"🎨","tags":["box-shadow","css","generator","design"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/box-shadow-generator.html","thumbnail":"tools/box-shadow-generator.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/box-shadow-generator.html","live":"https://one-file-tools.pages.dev/tools/box-shadow-generator.html"},{"id":"css-grid-generator","name":"CSS Grid Generator","shortDescription":"Build CSS Grid layouts visually with interactive rows, columns, and areas.","longDescriptionHtml":"<h2>CSS Grid Generator</h2>\n<p>Design CSS Grid layouts by clicking and dragging. Define rows, columns, gaps, and named areas, then export clean CSS.</p>\n<h3>Features</h3>\n<ul>\n<li>Visual grid builder</li>\n<li>Add/remove rows and columns</li>\n<li>Drag to create grid areas</li>\n<li>Gap and alignment controls</li>\n<li>Responsive preview</li>\n<li>Export HTML and CSS</li>\n</ul>\n","category":"css","categoryName":"CSS Tools","categoryIcon":"🎨","tags":["css-grid","layout","generator","design"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Medium","status":"idea","hasThumbnail":false,"file":"tools/css-grid-generator.html","thumbnail":"tools/css-grid-generator.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/css-grid-generator.html","live":"https://one-file-tools.pages.dev/tools/css-grid-generator.html"},{"id":"flexbox-playground","name":"Flexbox Playground","shortDescription":"Experiment with Flexbox properties and see the effects in real time.","longDescriptionHtml":"<h2>Flexbox Playground</h2>\n<p>Learn and experiment with every CSS Flexbox property. Toggle container and item properties and see instant visual feedback.</p>\n<h3>Features</h3>\n<ul>\n<li>All flex container properties</li>\n<li>All flex item properties</li>\n<li>Add/remove flex items</li>\n<li>Visual highlighting of alignment</li>\n<li>Export CSS</li>\n</ul>\n","category":"css","categoryName":"CSS Tools","categoryIcon":"🎨","tags":["flexbox","css","layout","playground"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Medium","status":"idea","hasThumbnail":false,"file":"tools/flexbox-playground.html","thumbnail":"tools/flexbox-playground.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/flexbox-playground.html","live":"https://one-file-tools.pages.dev/tools/flexbox-playground.html"},{"id":"image-dimension-checker","name":"Image Dimension Checker","shortDescription":"Drop or upload an image to instantly see its width, height, and aspect ratio.","longDescriptionHtml":"<h2>Image Dimension Checker</h2>\n<p>Drag and drop any image to instantly view its dimensions, aspect ratio, file size, and format. Works entirely in the browser.</p>\n<h3>Features</h3>\n<ul>\n<li>Drag and drop or file upload</li>\n<li>Width, height, and aspect ratio display</li>\n<li>File size and format detection</li>\n<li>Multiple image support</li>\n<li>No images are uploaded anywhere</li>\n</ul>\n","category":"image","categoryName":"Image Tools","categoryIcon":"🖼️","tags":["image","dimensions","aspect-ratio","size"],"techStack":["HTML5","CSS3","File API"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/image-dimension-checker.html","thumbnail":"tools/image-dimension-checker.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/image-dimension-checker.html","live":"https://one-file-tools.pages.dev/tools/image-dimension-checker.html"},{"id":"svg-previewer","name":"SVG Previewer","shortDescription":"Paste SVG code and preview it instantly with zoom and background options.","longDescriptionHtml":"<h2>SVG Previewer</h2>\n<p>Paste SVG markup and see it rendered immediately. Toggle backgrounds, zoom in/out, and inspect SVG dimensions.</p>\n<h3>Features</h3>\n<ul>\n<li>Live SVG rendering from code</li>\n<li>Dark/light/checkerboard background toggle</li>\n<li>Zoom controls</li>\n<li>SVG dimension display</li>\n<li>Download as PNG option</li>\n</ul>\n","category":"image","categoryName":"Image Tools","categoryIcon":"🖼️","tags":["svg","preview","viewer","vector"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/svg-previewer.html","thumbnail":"tools/svg-previewer.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/svg-previewer.html","live":"https://one-file-tools.pages.dev/tools/svg-previewer.html"},{"id":"lorem-ipsum-generator","name":"Lorem Ipsum Generator","shortDescription":"Generate placeholder text in paragraphs, sentences, or words.","longDescriptionHtml":"<h2>Lorem Ipsum Generator</h2>\n<p>Generate placeholder text for your designs and layouts. Choose the number of paragraphs, sentences, or words.</p>\n<h3>Features</h3>\n<ul>\n<li>Generate by paragraphs, sentences, or words</li>\n<li>Configurable count</li>\n<li>Start with &quot;Lorem ipsum dolor sit amet...&quot;</li>\n<li>Copy to clipboard</li>\n<li>Plain text and HTML output</li>\n</ul>\n","category":"text","categoryName":"Text & Content","categoryIcon":"📝","tags":["lorem-ipsum","placeholder","text","generator"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/lorem-ipsum-generator.html","thumbnail":"tools/lorem-ipsum-generator.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/lorem-ipsum-generator.html","live":"https://one-file-tools.pages.dev/tools/lorem-ipsum-generator.html"},{"id":"word-character-counter","name":"Word / Character Counter","shortDescription":"Count words, characters, sentences, and paragraphs with reading time.","longDescriptionHtml":"<h2>Word / Character Counter</h2>\n<p>Paste or type text and get instant statistics. Word count, character count (with/without spaces), sentence count, paragraph count, and estimated reading time.</p>\n<h3>Features</h3>\n<ul>\n<li>Word count</li>\n<li>Character count (with and without spaces)</li>\n<li>Sentence and paragraph count</li>\n<li>Estimated reading time</li>\n<li>Live update as you type</li>\n</ul>\n","category":"text","categoryName":"Text & Content","categoryIcon":"📝","tags":["word-count","character-count","text","statistics"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/word-character-counter.html","thumbnail":"tools/word-character-counter.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/word-character-counter.html","live":"https://one-file-tools.pages.dev/tools/word-character-counter.html"},{"id":"case-converter","name":"Case Converter","shortDescription":"Transform text between camelCase, snake_case, UPPER, lower, Title, and more.","longDescriptionHtml":"<h2>Case Converter</h2>\n<p>Convert text between every common casing style. Useful for developers switching between naming conventions.</p>\n<h3>Features</h3>\n<ul>\n<li>camelCase</li>\n<li>PascalCase</li>\n<li>snake_case</li>\n<li>kebab-case</li>\n<li>UPPER CASE</li>\n<li>lower case</li>\n<li>Title Case</li>\n<li>Sentence case</li>\n<li>CONSTANT_CASE</li>\n<li>dot.case</li>\n</ul>\n","category":"text","categoryName":"Text & Content","categoryIcon":"📝","tags":["case","converter","text","camelCase","snake_case"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/case-converter.html","thumbnail":"tools/case-converter.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/case-converter.html","live":"https://one-file-tools.pages.dev/tools/case-converter.html"},{"id":"regex-tester","name":"Regex Tester","shortDescription":"Test regular expressions with live matching, group highlighting, and flags.","longDescriptionHtml":"<h2>Regex Tester</h2>\n<p>Write and test regular expressions with instant visual feedback. See matches highlighted in your test string, with capture groups color-coded.</p>\n<h3>Features</h3>\n<ul>\n<li>Live regex matching</li>\n<li>Capture group highlighting</li>\n<li>All regex flags (g, i, m, s, u, y)</li>\n<li>Match count and details</li>\n<li>Common regex patterns library</li>\n<li>Replace mode</li>\n</ul>\n","category":"utilities","categoryName":"Developer Utilities","categoryIcon":"🛠️","tags":["regex","tester","regular-expression","pattern"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Medium","status":"idea","hasThumbnail":false,"file":"tools/regex-tester.html","thumbnail":"tools/regex-tester.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/regex-tester.html","live":"https://one-file-tools.pages.dev/tools/regex-tester.html"},{"id":"uuid-generator","name":"UUID Generator","shortDescription":"Generate random v4 UUIDs instantly with bulk generation support.","longDescriptionHtml":"<h2>UUID Generator</h2>\n<p>Generate RFC 4122 compliant v4 UUIDs. Create single or bulk UUIDs with one click.</p>\n<h3>Features</h3>\n<ul>\n<li>Generate single UUID</li>\n<li>Bulk generation (up to 100)</li>\n<li>Uppercase / lowercase toggle</li>\n<li>With or without hyphens</li>\n<li>Copy to clipboard</li>\n<li>History of generated UUIDs</li>\n</ul>\n","category":"utilities","categoryName":"Developer Utilities","categoryIcon":"🛠️","tags":["uuid","generator","random","identifier"],"techStack":["HTML5","CSS3","Crypto API"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/uuid-generator.html","thumbnail":"tools/uuid-generator.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/uuid-generator.html","live":"https://one-file-tools.pages.dev/tools/uuid-generator.html"},{"id":"timestamp-converter","name":"Timestamp Converter","shortDescription":"Convert Unix timestamps to human-readable dates and vice versa.","longDescriptionHtml":"<h2>Timestamp Converter</h2>\n<p>Convert between Unix timestamps (seconds and milliseconds) and human-readable date formats. Shows local time, UTC, and ISO 8601.</p>\n<h3>Features</h3>\n<ul>\n<li>Unix timestamp to date</li>\n<li>Date to Unix timestamp</li>\n<li>Seconds and milliseconds support</li>\n<li>Local time and UTC display</li>\n<li>ISO 8601 output</li>\n<li>Current timestamp display</li>\n</ul>\n","category":"utilities","categoryName":"Developer Utilities","categoryIcon":"🛠️","tags":["timestamp","unix","date","converter","epoch"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/timestamp-converter.html","thumbnail":"tools/timestamp-converter.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/timestamp-converter.html","live":"https://one-file-tools.pages.dev/tools/timestamp-converter.html"},{"id":"hash-generator","name":"Hash Generator","shortDescription":"Generate MD5, SHA-1, SHA-256, and SHA-512 hashes from text input.","longDescriptionHtml":"<h2>Hash Generator</h2>\n<p>Generate cryptographic hashes from text input using the Web Crypto API. Supports multiple hash algorithms.</p>\n<h3>Features</h3>\n<ul>\n<li>MD5 (via JS implementation)</li>\n<li>SHA-1</li>\n<li>SHA-256</li>\n<li>SHA-512</li>\n<li>Live hashing as you type</li>\n<li>Copy any hash to clipboard</li>\n<li>File hashing support</li>\n</ul>\n","category":"utilities","categoryName":"Developer Utilities","categoryIcon":"🛠️","tags":["hash","md5","sha","cryptography","generator"],"techStack":["HTML5","CSS3","Web Crypto API"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/hash-generator.html","thumbnail":"tools/hash-generator.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/hash-generator.html","live":"https://one-file-tools.pages.dev/tools/hash-generator.html"},{"id":"password-generator","name":"Password Generator","shortDescription":"Generate strong random passwords with customizable length and characters.","longDescriptionHtml":"<h2>Password Generator</h2>\n<p>Generate cryptographically strong random passwords. Customize length, character sets, and exclusions.</p>\n<h3>Features</h3>\n<ul>\n<li>Configurable length</li>\n<li>Include/exclude: uppercase, lowercase, numbers, symbols</li>\n<li>Exclude ambiguous characters (0, O, l, 1)</li>\n<li>Password strength indicator</li>\n<li>Generate multiple passwords</li>\n<li>Copy to clipboard</li>\n</ul>\n","category":"utilities","categoryName":"Developer Utilities","categoryIcon":"🛠️","tags":["password","generator","security","random"],"techStack":["HTML5","CSS3","Crypto API"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/password-generator.html","thumbnail":"tools/password-generator.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/password-generator.html","live":"https://one-file-tools.pages.dev/tools/password-generator.html"},{"id":"qr-code-generator","name":"QR Code Generator","shortDescription":"Create QR codes from text, URLs, or data with download options.","longDescriptionHtml":"<h2>QR Code Generator</h2>\n<p>Generate QR codes from any text or URL. Customize size and download as PNG or SVG.</p>\n<h3>Features</h3>\n<ul>\n<li>Text and URL input</li>\n<li>Configurable size</li>\n<li>Error correction levels</li>\n<li>Download as PNG</li>\n<li>Download as SVG</li>\n<li>Color customization</li>\n</ul>\n","category":"utilities","categoryName":"Developer Utilities","categoryIcon":"🛠️","tags":["qr-code","generator","barcode"],"techStack":["HTML5","CSS3","Canvas API"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/qr-code-generator.html","thumbnail":"tools/qr-code-generator.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/qr-code-generator.html","live":"https://one-file-tools.pages.dev/tools/qr-code-generator.html"},{"id":"markdown-previewer","name":"Markdown Previewer","shortDescription":"Write Markdown on the left, see rendered HTML on the right in real time.","longDescriptionHtml":"<h2>Markdown Previewer</h2>\n<p>A split-pane Markdown editor with live preview. Write Markdown on the left and see it rendered as HTML instantly on the right.</p>\n<h3>Features</h3>\n<ul>\n<li>Live preview as you type</li>\n<li>GitHub Flavored Markdown support</li>\n<li>Syntax highlighting for code blocks</li>\n<li>Full-screen editing mode</li>\n<li>Export as HTML</li>\n<li>Print-friendly output</li>\n</ul>\n","category":"text","categoryName":"Text & Content","categoryIcon":"📝","tags":["markdown","preview","editor","html"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Medium","status":"idea","hasThumbnail":false,"file":"tools/markdown-previewer.html","thumbnail":"tools/markdown-previewer.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/markdown-previewer.html","live":"https://one-file-tools.pages.dev/tools/markdown-previewer.html"},{"id":"slug-generator","name":"Slug Generator","shortDescription":"Convert text to URL-friendly slugs with customizable separators.","longDescriptionHtml":"<h2>Slug Generator</h2>\n<p>Convert any text into a clean, URL-friendly slug. Handles special characters, accents, and Unicode.</p>\n<h3>Features</h3>\n<ul>\n<li>Automatic slug generation</li>\n<li>Customizable separator (hyphen, underscore)</li>\n<li>Unicode and accent handling</li>\n<li>Maximum length setting</li>\n<li>Live preview</li>\n<li>Copy to clipboard</li>\n</ul>\n","category":"text","categoryName":"Text & Content","categoryIcon":"📝","tags":["slug","url","generator","text"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/slug-generator.html","thumbnail":"tools/slug-generator.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/slug-generator.html","live":"https://one-file-tools.pages.dev/tools/slug-generator.html"},{"id":"cron-expression-builder","name":"Cron Expression Builder","shortDescription":"Build and understand cron schedule expressions with a visual interface.","longDescriptionHtml":"<h2>Cron Expression Builder</h2>\n<p>Build cron expressions visually instead of memorizing the syntax. See a human-readable description of when your cron job will run.</p>\n<h3>Features</h3>\n<ul>\n<li>Visual cron builder (minute, hour, day, month, weekday)</li>\n<li>Human-readable schedule description</li>\n<li>Next 5 execution times</li>\n<li>Preset common schedules</li>\n<li>Copy expression to clipboard</li>\n</ul>\n","category":"utilities","categoryName":"Developer Utilities","categoryIcon":"🛠️","tags":["cron","scheduler","expression","builder"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Medium","status":"idea","hasThumbnail":false,"file":"tools/cron-expression-builder.html","thumbnail":"tools/cron-expression-builder.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/cron-expression-builder.html","live":"https://one-file-tools.pages.dev/tools/cron-expression-builder.html"},{"id":"user-agent-parser","name":"User Agent Parser","shortDescription":"Parse and explain browser user agent strings into readable components.","longDescriptionHtml":"<h2>User Agent Parser</h2>\n<p>Paste any user agent string and see it broken down into browser, engine, OS, and device information. Also shows your current user agent.</p>\n<h3>Features</h3>\n<ul>\n<li>Parse any user agent string</li>\n<li>Detect browser name and version</li>\n<li>Detect OS and platform</li>\n<li>Device type detection</li>\n<li>Show current browser&#39;s user agent</li>\n<li>Common user agents reference</li>\n</ul>\n","category":"browser-network","categoryName":"Browser & Network","categoryIcon":"🌐","tags":["user-agent","parser","browser","detection"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/user-agent-parser.html","thumbnail":"tools/user-agent-parser.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/user-agent-parser.html","live":"https://one-file-tools.pages.dev/tools/user-agent-parser.html"},{"id":"viewport-screen-info","name":"Viewport / Screen Info","shortDescription":"Display current device viewport, screen dimensions, and pixel ratio.","longDescriptionHtml":"<h2>Viewport / Screen Info</h2>\n<p>Instantly see your current viewport width, screen resolution, device pixel ratio, and more. Updates live as you resize.</p>\n<h3>Features</h3>\n<ul>\n<li>Viewport width and height (live)</li>\n<li>Screen width and height</li>\n<li>Device pixel ratio</li>\n<li>Color depth</li>\n<li>Orientation</li>\n<li>Touch support detection</li>\n<li>CSS media query matches</li>\n</ul>\n","category":"browser-network","categoryName":"Browser & Network","categoryIcon":"🌐","tags":["viewport","screen","resolution","responsive"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/viewport-screen-info.html","thumbnail":"tools/viewport-screen-info.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/viewport-screen-info.html","live":"https://one-file-tools.pages.dev/tools/viewport-screen-info.html"},{"id":"heading-structure-visualizer","name":"Heading Structure Visualizer","shortDescription":"Paste HTML or a URL to visualize the heading hierarchy and spot issues.","longDescriptionHtml":"<h2>Heading Structure Visualizer</h2>\n<p>Visualize the heading structure (h1-h6) of any HTML page. Highlights skipped levels and accessibility issues.</p>\n<h3>Features</h3>\n<ul>\n<li>Paste HTML to analyze</li>\n<li>Tree view of heading hierarchy</li>\n<li>Highlight skipped heading levels</li>\n<li>Accessibility warnings</li>\n<li>Outline view matching screen reader behavior</li>\n</ul>\n","category":"accessibility","categoryName":"Accessibility","categoryIcon":"♿","tags":["headings","structure","accessibility","a11y","html"],"techStack":["HTML5","CSS3","Vanilla JS"],"difficulty":"Easy","status":"idea","hasThumbnail":false,"file":"tools/heading-structure-visualizer.html","thumbnail":"tools/heading-structure-visualizer.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/heading-structure-visualizer.html","live":"https://one-file-tools.pages.dev/tools/heading-structure-visualizer.html"}];
+      var TOOLS = [{"id":"open-graph-inspector","name":"Open Graph Inspector","shortDescription":"Analyze meta tags, social previews, and SEO metadata for any URL with actionable scores.","longDescriptionHtml":"<h2>Open Graph Inspector</h2>\n<p>A comprehensive Open Graph and meta tag analyzer that fetches any URL and breaks down its social sharing metadata, SEO tags, and rich preview data.</p>\n<h3>Features</h3>\n<ul>\n<li><strong>URL or Paste HTML</strong> - Enter a URL to fetch, or paste raw HTML directly</li>\n<li><strong>Social Previews</strong> - See exactly how links appear on Facebook, Twitter, LinkedIn, and other platforms</li>\n<li><strong>OG Tag Analysis</strong> - Scores your Open Graph tags (og:title, og:description, og:image, etc.) out of 7</li>\n<li><strong>Twitter Card Analysis</strong> - Validates Twitter Card meta tags (5-point check)</li>\n<li><strong>SEO Metadata Check</strong> - Evaluates standard SEO tags like title, description, canonical, and robots</li>\n<li><strong>Actionable Scores</strong> - Color-coded pass/fail indicators with specific recommendations</li>\n<li><strong>Favicon Detection</strong> - Finds and displays all linked icons</li>\n<li><strong>Keyboard Shortcuts</strong> - Full keyboard navigation support for power users</li>\n<li><strong>Export Results</strong> - Download analysis as JSON</li>\n<li><strong>Dark Mode</strong> - Automatic dark/light theme with manual toggle</li>\n<li><strong>CORS Proxy Fallback</strong> - Multiple proxy strategies for fetching cross-origin URLs</li>\n<li><strong>Clipboard Paste</strong> - Paste HTML directly from clipboard for offline analysis</li>\n</ul>\n","category":"web-seo","categoryName":"Web & SEO","categoryIcon":"🌐","tags":["open-graph","meta-tags","seo","social-media","preview","analyzer","twitter-card","facebook","og-tags","validator"],"techStack":["HTML5","CSS3","Vanilla JS","Fetch API","Clipboard API","Google Fonts"],"difficulty":"Medium","status":"live","hasThumbnail":true,"file":"tools/open-graph-inspector.html","thumbnail":"tools/open-graph-inspector.png","github":"https://github.com/praveenscience/One-File-Tools/blob/main/tools/open-graph-inspector.html","live":"https://one-file-tools.pages.dev/tools/open-graph-inspector.html"}];
 
       // ── Theme ──
       function toggleTheme() {
@@ -1546,30 +740,49 @@
         var input = d1.querySelector(".search-input");
         var cards = Array.from(d1.querySelectorAll(".tool-card"));
         var filterBtns = Array.from(d1.querySelectorAll(".filter-btn"));
+        var tagBtns = Array.from(d1.querySelectorAll(".tag-filter-btn"));
         var noResults = d1.querySelector(".no-results");
         var countEl = d1.querySelector(".results-count");
         var activeCat = "all";
+        var activeTag = "";
 
         function run() {
           var q = input.value.toLowerCase().trim();
           var vis = 0;
           cards.forEach(function(c) {
             var okCat = activeCat === "all" || c.dataset.category === activeCat;
+            var okTag = !activeTag || (c.dataset.tags && c.dataset.tags.split(",").indexOf(activeTag) !== -1);
             var okSearch = !q || c.dataset.search.indexOf(q) !== -1;
-            var show = okCat && okSearch;
+            var show = okCat && okTag && okSearch;
             c.style.display = show ? "" : "none";
             if (show) vis++;
           });
           noResults.style.display = vis === 0 ? "block" : "none";
-          countEl.textContent = (q || activeCat !== "all") ? vis + " tool" + (vis !== 1 ? "s" : "") + " found" : "";
+          var hasFilter = q || activeCat !== "all" || activeTag;
+          countEl.textContent = hasFilter ? vis + " tool" + (vis !== 1 ? "s" : "") + " found" : "";
         }
 
         input.addEventListener("input", run);
+
         filterBtns.forEach(function(b) {
           b.addEventListener("click", function() {
             filterBtns.forEach(function(x) { x.classList.remove("active"); });
             b.classList.add("active");
             activeCat = b.dataset.category;
+            run();
+          });
+        });
+
+        tagBtns.forEach(function(b) {
+          b.addEventListener("click", function() {
+            if (b.classList.contains("active")) {
+              b.classList.remove("active");
+              activeTag = "";
+            } else {
+              tagBtns.forEach(function(x) { x.classList.remove("active"); });
+              b.classList.add("active");
+              activeTag = b.dataset.tag;
+            }
             run();
           });
         });
