@@ -64,6 +64,8 @@ Below is a curated list of tool ideas waiting to be built. Each idea is a potent
 | Canonical URL Checker — verify canonical tag setup             | Medium     |
 | JSON-LD / Schema.org Generator — build structured data         | Medium     |
 | Hreflang Tag Generator — generate multi-language link tags     | Easy       |
+| Responsive Breakpoint Tester — preview pages at common device widths | Medium |
+| Privacy Policy Generator — fill a form, get a basic privacy policy   | Easy   |
 
 ### Image Tools
 
@@ -102,6 +104,8 @@ Below is a curated list of tool ideas waiting to be built. Each idea is a potent
 | Flexbox Playground — experiment with Flexbox properties     | Medium     |
 | CSS Unit Converter — convert between px, rem, em, vw, vh    | Easy       |
 | Animation Cubic-Bezier Editor — design easing curves        | Medium     |
+| CSS Easing Visualizer — draw cubic-bezier curves with animated preview | Medium |
+| Tailwind → Vanilla CSS Converter — paste Tailwind classes, get equivalent CSS | Medium |
 
 ### Text & Content
 
@@ -114,6 +118,8 @@ Below is a curated list of tool ideas waiting to be built. Each idea is a potent
 | Markdown Previewer — write and preview Markdown in real time  | Medium     |
 | Text Diff Viewer — compare two blocks of text side by side    | Medium     |
 | Unicode Inspector — inspect Unicode characters and codepoints | Easy       |
+| HTML Entity Converter — encode/decode HTML entities and Unicode escapes | Easy |
+| Diff Viewer — paste two text blocks, see highlighted line-by-line diff  | Medium |
 
 ### JSON & API
 
@@ -126,6 +132,7 @@ Below is a curated list of tool ideas waiting to be built. Each idea is a potent
 | Curl Builder — build curl commands visually              | Medium     |
 | Query String Builder — build and parse URL query strings | Easy       |
 | YAML ↔ JSON Converter — convert between YAML and JSON formats | Easy    |
+| API Response Mocker — define a JSON shape, get a mock endpoint via Service Worker | Medium |
 
 ### Developer Utilities
 
@@ -139,6 +146,8 @@ Below is a curated list of tool ideas waiting to be built. Each idea is a potent
 | QR Code Generator — create QR codes from text or URLs        | Easy       |
 | Git Ignore Generator — generate .gitignore files for selected technologies | Easy |
 | Commit Message Generator — create conventional commit messages | Easy     |
+| Chmod Calculator — toggle permission bits, see numeric and symbolic notation | Easy |
+| Crontab Explainer — paste a cron expression, see next 5 run times in plain English | Easy |
 
 ### Browser & Network
 
@@ -149,6 +158,7 @@ Below is a curated list of tool ideas waiting to be built. Each idea is a potent
 | Cookie Viewer — view and manage browser cookies              | Easy       |
 | LocalStorage Explorer — browse and edit localStorage         | Easy       |
 | HTTP Header Inspector — view response headers for a URL      | Medium     |
+| DNS Record Lookup — query A, AAAA, MX, TXT, CNAME via DNS-over-HTTPS | Medium |
 
 ### Accessibility
 
