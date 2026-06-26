@@ -31,20 +31,21 @@ Every tool in this collection is a standalone `.html` file containing all the HT
 | # | Tool | Category | Description | Live |
 |---|------|----------|-------------|------|
 | 1 | [Aspect Ratio Calculator](tools/aspect-ratio-calculator.html) | Image Tools | Calculate and simplify aspect ratios instantly. Supports common presets and outputs decimal ratio and CSS padding-bottom values. | [Try it](https://one-file-tools.pages.dev/tools/aspect-ratio-calculator) |
-| 2 | [Border Radius Generator](tools/border-radius-generator.html) | CSS Tools | Visually create CSS border-radius values with live preview, presets, and copy-ready CSS output. | [Try it](https://one-file-tools.pages.dev/tools/border-radius-generator) |
-| 3 | [Box Shadow Generator](tools/box-shadow-generator.html) | CSS Tools | Design CSS box shadows visually with live preview, presets, and copy-ready output. | [Try it](https://one-file-tools.pages.dev/tools/box-shadow-generator) |
-| 4 | [Clip Path Generator](tools/clip-path-generator.html) | CSS Tools | Visually create complex CSS clip-path shapes and instantly copy the generated code. | [Try it](https://one-file-tools.pages.dev/tools/clip-path-generator) |
-| 5 | [CSS Grid Generator](tools/css-grid-generator.html) | CSS Tools | Build CSS Grid layouts visually with configurable columns, rows, gap, and sizing options. | [Try it](https://one-file-tools.pages.dev/tools/css-grid-generator) |
-| 6 | [Favicon Generator](tools/favicon-generator.html) | Developer Utilities | Generate a complete favicon pack and integration tags from any image, offline. | [Try it](https://one-file-tools.pages.dev/tools/favicon-generator) |
-| 7 | [GitHub Token Validator Plain](tools/github-token-validator-plain.html) | Developer Utilities | Validate GitHub personal access tokens with a plain vanilla web interface. | [Try it](https://one-file-tools.pages.dev/tools/github-token-validator-plain) |
-| 8 | [GitHub Token Validator Retro](tools/github-token-validator-retro.html) | Developer Utilities | Validate GitHub personal access tokens with a retro terminal-style interface. | [Try it](https://one-file-tools.pages.dev/tools/github-token-validator-retro) |
-| 9 | [GitHub Token Validator Terminal](tools/github-token-validator-terminal.html) | Developer Utilities | Validate GitHub Personal Access Tokens with a terminal-style UI that displays user identity and scopes. | [Try it](https://one-file-tools.pages.dev/tools/github-token-validator-terminal) |
-| 10 | [Glassmorphism Generator](tools/glassmorphism-generator.html) | CSS Tools | Generate sleek, frosted-glass UI effects for your components. | [Try it](https://one-file-tools.pages.dev/tools/glassmorphism-generator) |
-| 11 | [JSON Formatter](tools/json-formatter.html) | JSON & API | Format, validate, and minify JSON locally in your browser. | [Try it](https://one-file-tools.pages.dev/tools/json-formatter) |
-| 12 | [JWT Decoder](tools/jwt-decoder.html) | JSON & API | Decode and inspect JSON Web Tokens — header, payload, claims, and expiry — entirely in your browser. | [Try it](https://one-file-tools.pages.dev/tools/jwt-decoder) |
-| 13 | [Open Graph Inspector](tools/open-graph-inspector.html) | Web & SEO | Analyze meta tags, social previews, and SEO metadata for any URL with actionable scores. | [Try it](https://one-file-tools.pages.dev/tools/open-graph-inspector) |
-| 14 | [Palette Generator](tools/palette-generator.html) | Color Tools | Generate unique, collision-free variation color schemes based on color theory metrics, offline. | [Try it](https://one-file-tools.pages.dev/tools/palette-generator) |
-| 15 | [UUID Generator](tools/uuid-generator.html) | Developer Utilities | Generate random v4 UUIDs instantly, offline. | [Try it](https://one-file-tools.pages.dev/tools/uuid-generator) |
+| 2 | [Box Shadow Generator](tools/box-shadow-generator.html) | CSS Tools | Design CSS box shadows visually with live preview, presets, and copy-ready output. | [Try it](https://one-file-tools.pages.dev/tools/box-shadow-generator) |
+| 3 | [Clip Path Generator](tools/clip-path-generator.html) | CSS Tools | Visually create complex CSS clip-path shapes and instantly copy the generated code. | [Try it](https://one-file-tools.pages.dev/tools/clip-path-generator) |
+| 4 | [CSS Grid Generator](tools/css-grid-generator.html) | CSS Tools | Build CSS Grid layouts visually with configurable columns, rows, gap, and sizing options. | [Try it](https://one-file-tools.pages.dev/tools/css-grid-generator) |
+| 5 | [Favicon Generator](tools/favicon-generator.html) | Developer Utilities | Generate a complete favicon pack and integration tags from any image, offline. | [Try it](https://one-file-tools.pages.dev/tools/favicon-generator) |
+| 6 | [GitHub Token Validator (Terminal)](tools/github-token-validator-terminal.html) | Developer Utilities | Validate GitHub Personal Access Tokens with a terminal-style UI that displays user identity and scopes. | [Try it](https://one-file-tools.pages.dev/tools/github-token-validator-terminal) |
+| 7 | [GitHub Token Validator Plain](tools/github-token-validator-plain.html) | Developer Utilities | Validate GitHub Personal Access Tokens with a clean, straightforward interface. | [Try it](https://one-file-tools.pages.dev/tools/github-token-validator-plain) |
+| 8 | [GitHub Token Validator Retro](tools/github-token-validator-retro.html) | Developer Utilities | Validate GitHub Personal Access Tokens with a retro terminal themed interface. | [Try it](https://one-file-tools.pages.dev/tools/github-token-validator-retro) |
+| 9 | [Glassmorphism Generator](tools/glassmorphism-generator.html) | CSS Tools | Generate sleek, frosted-glass UI effects for your components. | [Try it](https://one-file-tools.pages.dev/tools/glassmorphism-generator) |
+| 10 | [JSON Formatter](tools/json-formatter.html) | JSON & API | Format, validate, and minify JSON locally in your browser. | [Try it](https://one-file-tools.pages.dev/tools/json-formatter) |
+| 11 | [JWT Decoder](tools/jwt-decoder.html) | JSON & API | Decode and inspect JSON Web Tokens — header, payload, claims, and expiry — entirely in your browser. | [Try it](https://one-file-tools.pages.dev/tools/jwt-decoder) |
+| 12 | [Open Graph Inspector](tools/open-graph-inspector.html) | Web & SEO | Analyze meta tags, social previews, and SEO metadata for any URL with actionable scores. | [Try it](https://one-file-tools.pages.dev/tools/open-graph-inspector) |
+| 13 | [Palette Generator](tools/palette-generator.html) | Color Tools | Generate unique, collision-free variation color schemes based on color theory metrics, offline. | [Try it](https://one-file-tools.pages.dev/tools/palette-generator) |
+| 14 | [Radii - Border Radius Generator](tools/border-radius-generator.html) | CSS Tools | Visually create CSS border-radius values with live preview, presets, and copy-ready CSS output. | [Try it](https://one-file-tools.pages.dev/tools/border-radius-generator) |
+| 15 | [Twitter / X Card Preview](tools/twitter-x-card-preview.html) | Web & SEO | Preview how Twitter/X cards appear with live updates for Summary and Summary Large Image layouts. | [Try it](https://one-file-tools.pages.dev/tools/twitter-x-card-preview) |
+| 16 | [UUID Generator](tools/uuid-generator.html) | Developer Utilities | Generate random v4 UUIDs instantly, offline. | [Try it](https://one-file-tools.pages.dev/tools/uuid-generator) |
 
 > **Want to see your tool here?** Check out the [Contributing Guide](Contributing.md) and pick an idea from the [Ideas Board](#ideas-board).
 
@@ -59,7 +60,7 @@ Below is a curated list of tool ideas waiting to be built. Each idea is a potent
 | Open Graph Generator — generate OG meta tags and preview cards | Easy       |
 | Open Graph Checker — validate existing OG tags from a URL      | Medium     |
 | Meta Tag Generator — create standard HTML meta tags            | Easy       |
-| Twitter / X Card Preview — preview how links appear on Twitter | Easy       |
+| ~~Twitter / X Card Preview~~ — ✅ [Built](tools/twitter-x-card-preview.html) | Easy       |
 | Robots.txt Generator — build a `robots.txt` file visually      | Easy       |
 | Sitemap Generator — create XML sitemaps                        | Medium     |
 | Canonical URL Checker — verify canonical tag setup             | Medium     |
